@@ -1,0 +1,14 @@
+type Entrenador {
+    entrenadorId: ID!
+    nombre: String!
+    apellido: String!
+}
+
+type Query {
+    findAllEntrenadores: [Entrenador]!
+    countEntrenadores: Int!
+}
+
+type Mutation {
+    newEntrenador(nombre: String!, apellido: String!) : Entrenador!
+}

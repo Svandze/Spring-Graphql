@@ -1,0 +1,27 @@
+type Pokemon {
+    pokemonId: ID!
+    nombre: String!
+    tipo: String!
+    nivel: Int
+    entrenador: Entrenador!
+}
+
+type BatallaPokemon{
+    batallaId: ID
+    ganador: Pokemon!
+    pokemon1: Pokemon!
+    pokemon2: Pokemon!
+}
+
+extend type Query {
+    findAllPokemons: [Pokemon]!
+    findAllPokemonsById(pokemonIds: [ID!]): [Pokemon]!
+    countPokemons: Int!
+}
+
+extend type Mutation {
+    findRandomPokemons: [Pokemon]!
+    batallaPokemon: BatallaPokemon!
+    borrarPokemon(id: ID!) : Boolean
+    actualizarNivel(nivel: Int!, id: ID!) : Pokemon!
+}
